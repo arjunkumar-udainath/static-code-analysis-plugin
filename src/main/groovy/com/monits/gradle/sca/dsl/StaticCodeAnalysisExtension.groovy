@@ -43,6 +43,7 @@ class StaticCodeAnalysisExtension {
     List<String> pmdRules
     String spotbugsExclude
     String androidLintConfig
+    String spotbugsCustomMaxHeap
 
     NamedDomainObjectContainer<RulesConfig> sourceSetConfig
 

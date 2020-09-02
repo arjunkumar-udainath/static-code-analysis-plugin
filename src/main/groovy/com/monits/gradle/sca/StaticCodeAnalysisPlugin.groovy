@@ -151,6 +151,7 @@ class StaticCodeAnalysisPlugin implements Plugin<Project> {
             map('checkstyle') { true }
             map('cpd') { true }
             map('androidLint') { true }
+            map('spotbugsCustomMaxHeap') { null }
             map('checkstyleRules') {
                 if (ToolVersions.isLatestCheckstyleVersion()) {
                     return CHECKSTYLE_DEFAULT_RULES

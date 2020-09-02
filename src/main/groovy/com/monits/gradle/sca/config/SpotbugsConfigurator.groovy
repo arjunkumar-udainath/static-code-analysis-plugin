@@ -13,6 +13,8 @@
  */
 package com.monits.gradle.sca.config
 
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import com.github.spotbugs.snom.SpotBugsExtension
 import com.github.spotbugs.snom.SpotBugsPlugin
 import com.monits.gradle.sca.ClasspathAware
@@ -45,6 +47,7 @@ class SpotbugsConfigurator implements AnalysisConfigurator, ClasspathAware {
     private static final String SPOTBUGS = 'spotbugs'
     private static final String SPOTBUGS_PLUGIN_ID = 'com.github.spotbugs'
     private static final String SPOTBUGS_PLUGINS_CONFIGURATION = 'spotbugsPlugins'
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpotbugsConfigurator)
 
     private final RemoteConfigLocator configLocator = new RemoteConfigLocator(SPOTBUGS)
 
@@ -109,6 +112,11 @@ class SpotbugsConfigurator implements AnalysisConfigurator, ClasspathAware {
                 toolVersion.set(ToolVersions.spotbugsVersion)
                 effort = 'max'
                 ignoreFailures.set(extension.ignoreErrors)
+
+                if (extension.spotbugsCustomMaxHeap != null) {
+                    LOGGER.warn('Setting custom max heap size for SpotBugs3: ' + extension.spotbugsCustomMaxHeap)
+                    maxHeapSize.set(extension.spotbugsCustomMaxHeap)
+                }
             }
         }
     }
