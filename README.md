@@ -89,6 +89,8 @@ staticCodeAnalysis {
 
     ignoreErrors = true
 
+    spotbugsCustomMaxHeap='2g'
+
     // default rules
     spotbugsExclude = "$project.rootProject.projectDir/config/spotbugs/excludeFilter.xml"
     checkstyleRules = 'https://raw.githubusercontent.com/Monits/static-code-analysis-plugin/staging/defaults/checkstyle/checkstyle-cache.xml'

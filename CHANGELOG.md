@@ -1,6 +1,12 @@
 ## History
 
 # v3.0
+
+### 3.2.0-custom-heap
+
+Improvements:
+ * New option 'spotbugsCustomMaxHeap' to set max heap size for SpotBugs
+
 ### 3.2.0
 
 Improvements:
